@@ -10,6 +10,9 @@ import {PriceConvertor} from "./PriceConvertor.sol";
 
 // 783312 gas
 // 762939 gas with constant
+
+error NotOwner();
+
 contract FundMe
 {
     using PriceConvertor for uint256;
@@ -88,7 +91,8 @@ contract FundMe
 
     modifier onlyOwner()
     {
-        require(msg.sender == i_owner, "MUST BE OWNER" );
+       // require(msg.sender == i_owner, "MUST BE OWNER" );
+        if (msg.sender != i_owner) revert NotOwner();
         _;
     }
 
