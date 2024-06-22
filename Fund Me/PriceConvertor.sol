@@ -32,7 +32,7 @@ library PriceConvertor
         return ethAmountInUSD;
     }
 
-    function getVersion() internal  view returns (uint256) 
+    function getVersion() public view returns (uint256) 
     {
         return AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306).version();
     }
